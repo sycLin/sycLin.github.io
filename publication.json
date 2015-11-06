@@ -1,0 +1,60 @@
+{
+  "conferenceposters": [
+    {
+      "title": "Sample Poster Title",
+      "authors": [
+        {
+          "name": "Steve Jobs",
+          "email": "sjobs@apple.com"
+        },
+        {
+          "name": "Tim Cook",
+          "email": "tcook@apple.com"
+        },
+        {
+          "name": "Michael Jackson",
+          "email": "Michael.X.Jackson@gmail.com"
+        }
+      ],
+      "year": "2011",
+      "conference": "Apple and Music and the world(2011), 135-246",
+	  "links": [
+	  	{
+		  "linkTitle": "PDF",
+		  "linkUrl": "http://www.google.com.tw/"
+		},
+		{
+		  "linkTitle": "Source Code",
+		  "linkUrl": "http://www.apple.com/"
+		}
+	  ]
+    }
+  ],
+  "conferencepapers": [
+    {
+      "title": "Sample Paper Title",
+      "authors": [
+        {
+          "name": "Michael Jackson",
+          "email": "Michael.X.Jackson@gmail.com"
+        },
+        {
+          "name": "Michael Jordan",
+          "email": "Michael.X.Jordan@gmail.com"
+        }
+      ],
+      "year": "2014",
+      "conference": "Proceedings of the International Conference on Machine Learning (ICML) (2014), 2266-5566",
+	  "links": [
+	  	{
+		  "linkTitle": "PDF",
+		  "linkUrl": "http://www.google.com.tw/"
+		},
+		{
+		  "linkTitle": "Data Set",
+		  "linkUrl": "http://www.ntu.edu.tw/"
+		}
+	  ]
+    }
+  ]
+}
