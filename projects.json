@@ -1,0 +1,18 @@
+[
+  {
+    "title": "SampleProjectTitle",
+    "startDate": "2014-11",
+    "endDate": "2015-11",
+    "description": "Sample project description goes here: please briefly introduce this project of yours to the audience of your pages... thank you :)",
+    "links": [
+      {
+        "linkTitle": "Poster",
+        "linkUrl": "http://www.google.com.tw/"
+      },
+      {
+        "linkTitle": "Training Data Set",
+        "linkUrl": "http://tw.yahoo.com/"
+      }
+    ]
+  }
+]
