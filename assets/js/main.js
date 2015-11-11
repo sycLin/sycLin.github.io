@@ -15,6 +15,7 @@ var config = function() {
 			var newA = document.createElement('a');
 			var newText = document.createTextNode(key);
 			newA.setAttribute('onclick', 'navLink(\'' + config.structure.pages[key] + '\')');
+			newA.setAttribute('href', '#');
 			newA.appendChild(newText);
 			newLi.appendChild(newA);
 			navNode.appendChild(newLi);
