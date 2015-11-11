@@ -14,7 +14,7 @@ var config = function() {
 			var newLi = document.createElement('li');
 			var newA = document.createElement('a');
 			var newText = document.createTextNode(key);
-			newA.setAttribute('onclick', 'navLink(\'' + config.structure.pages[key] + '\')');
+			newA.setAttribute('onclick', 'navLink(this, \'' + config.structure.pages[key] + '\')');
 			newA.setAttribute('href', '#');
 			newA.appendChild(newText);
 			newLi.appendChild(newA);
@@ -24,8 +24,28 @@ var config = function() {
 	doAJAX('GET', window.location.href + 'config.json', '', onResponse);
 }
 
-var navLink = function(jsonLocation) {
-	;
+var navLink = function(navItem, jsonLocation) {
+	// hide all other sections
+	var sections = document.getElementsByClassName('sections');
+	for(var i=0; i<sections.length; i++)
+		sections[i].style.display = "none";
+	// display the designated item
+	var target = navItem.innerHTML;
+	if(target == "about") {
+		console.log('displaying about section with json located at: ' + jsonLocation);
+	} else if(target == "publication") {
+		console.log('displaying publication section with json located at: ' + jsonLocation);
+	} else if(target == "projects") {
+		console.log('displaying projects section with json located at: ' + jsonLocation);
+	} else if(target == "skills") {
+		console.log('displaying skills section with json located at: ', jsonLocation);
+	} else if(target == "contact") {
+		console.log('displaying contact section with json located at: ' + jsonLocation);
+	} else {
+		console.log('this sections: ' + target + ' is not implemented yet!');
+		return;
+	}
+	document.getElementById(target).style.display = "block";
 }
 
 var doAJAX = function(method, url, data, funcOnSuc, asyncOrNot) {
