@@ -62,8 +62,96 @@ var getPublication = function() {
 	console.log('under construction...');
 }
 
-var getProjects = function() {
-	console.log('under construction...');
+var getProjects = function(jsonLocation) {
+	// get response from json file
+	var onResponse = function(raw) {
+		var projects = JSON.parse(raw);
+		// fill in the research related projects
+		var RRPjDiv = document.getElementById('Research-Related-Projects');
+		for(var i=0; i<RRPjDiv.children.length; i++) {
+			if(RRPjDiv.children[i].tagName == "DIV") {
+				RRPjDiv.removeChild(RRPjDiv.children[i]);
+				i -= 1;
+			}
+		}
+		for(var i=0; i<projects.research.length; i++) {
+			var newPjDiv = document.createElement('div');
+			newPjDiv.setAttribute('class', 'row card hoverable');
+			var leftDiv = document.createElement('div');
+			var rightDiv = document.createElement('div');
+			leftDiv.setAttribute('class', 'col s12 m3');
+			rightDiv.setAttribute('class', 'col s12 m9');
+			var thumbnail = document.createElement('img');
+			thumbnail.setAttribute('src', projects.research[i].thumbnail);
+			thumbnail.setAttribute('class', 'responsive-img');
+			thumbnail.setAttribute('alt', 'project thumbnail');
+			leftDiv.appendChild(thumbnail);
+			var projectTitle = document.createElement('h4');
+			var projectTitleText = document.createTextNode(projects.research[i].title);
+			projectTitle.appendChild(projectTitleText);
+			var projectDescription = document.createElement('p');
+			var projectDescriptionText = document.createTextNode(projects.research[i].description);
+			projectDescription.appendChild(projectDescriptionText);
+			var projectLinks = document.createElement('div');
+			projectLinks.setAttribute('class', 'card-action');
+			for(var j=0; j<projects.research[i].links.length; j++) {
+				var newLink = document.createElement('a');
+				newLink.setAttribute('href', projects.research[i].links[j].linkUrl);
+				var newLinkText = document.createTextNode(projects.research[i].links[j].linkTitle);
+				newLink.appendChild(newLinkText);
+				projectLinks.appendChild(newLink);
+			}
+			rightDiv.appendChild(projectTitle);
+			rightDiv.appendChild(projectDescription);
+			rightDiv.appendChild(projectLinks);
+			newPjDiv.appendChild(leftDiv);
+			newPjDiv.appendChild(rightDiv);
+			RRPjDiv.appendChild(newPjDiv);
+		}
+		// fill in the nonresearch related projects
+		var nRRPjDiv = document.getElementById('NonResearch-Related-Projects');
+		for(var i=0; i<nRRPjDiv.children.length; i++) {
+			if(nRRPjDiv.children[i].tagName == "DIV") {
+				nRRPjDiv.removeChild(nRRPjDiv.children[i]);
+				i -= 1;
+			}
+		}
+		for(var i=0; i<projects.nonresearch.length; i++) {
+			var newPjDiv = document.createElement('div');
+			newPjDiv.setAttribute('class', 'row card hoverable');
+			var leftDiv = document.createElement('div');
+			var rightDiv = document.createElement('div');
+			leftDiv.setAttribute('class', 'col s12 m3');
+			rightDiv.setAttribute('class', 'col s12 m9');
+			var thumbnail = document.createElement('img');
+			thumbnail.setAttribute('src', projects.nonresearch[i].thumbnail);
+			thumbnail.setAttribute('class', 'responsive-img');
+			thumbnail.setAttribute('alt', 'project thumbnail');
+			leftDiv.appendChild(thumbnail);
+			var projectTitle = document.createElement('h4');
+			var projectTitleText = document.createTextNode(projects.nonresearch[i].title);
+			projectTitle.appendChild(projectTitleText);
+			var projectDescription = document.createElement('p');
+			var projectDescriptionText = document.createTextNode(projects.nonresearch[i].description);
+			projectDescription.appendChild(projectDescriptionText);
+			var projectLinks = document.createElement('div');
+			projectLinks.setAttribute('class', 'card-action');
+			for(var j=0; j<projects.nonresearch[i].links.length; j++) {
+				var newLink = document.createElement('a');
+				newLink.setAttribute('href', projects.nonresearch[i].links[j].linkUrl);
+				var newLinkText = document.createTextNode(projects.nonresearch[i].links[j].linkTitle);
+				newLink.appendChild(newLinkText);
+				projectLinks.appendChild(newLink);
+			}
+			rightDiv.appendChild(projectTitle);
+			rightDiv.appendChild(projectDescription);
+			rightDiv.appendChild(projectLinks);
+			newPjDiv.appendChild(leftDiv);
+			newPjDiv.appendChild(rightDiv);
+			nRRPjDiv.appendChild(newPjDiv);
+		}
+	}
+	doAJAX("GET", window.location.origin + window.location.pathname + jsonLocation, "", onResponse);
 }
 
 var getSkills = function(jsonLocation) {
