@@ -34,19 +34,19 @@ var navLink = function(navItem, jsonLocation) {
 	var target = navItem.innerHTML;
 	if(target == "about") {
 		console.log('displaying about section with json located at: ' + jsonLocation);
-		getAbout();
+		getAbout(jsonLocation);
 	} else if(target == "publication") {
 		console.log('displaying publication section with json located at: ' + jsonLocation);
-		getPublication();
+		getPublication(jsonLocation);
 	} else if(target == "projects") {
 		console.log('displaying projects section with json located at: ' + jsonLocation);
-		getProjects();
+		getProjects(jsonLocation);
 	} else if(target == "skills") {
 		console.log('displaying skills section with json located at: ', jsonLocation);
-		getSkills();
+		getSkills(jsonLocation);
 	} else if(target == "contact") {
 		console.log('displaying contact section with json located at: ' + jsonLocation);
-		getContact();
+		getContact(jsonLocation);
 	} else {
 		console.log('this sections: ' + target + ' is not implemented yet!');
 		return;
@@ -66,8 +66,90 @@ var getProjects = function() {
 	console.log('under construction...');
 }
 
-var getSkills = function() {
-	console.log('under construction...');
+var getSkills = function(jsonLocation) {
+	// get response from json file
+	var onResponse = function(raw) {
+		var skills = JSON.parse(raw);
+		// fill in the advanced skills
+		var advSkillsDiv = document.getElementById('advanced-skills');
+		for(var i=0; i<advSkillsDiv.children.length; i++) {
+			if(advSkillsDiv.children[i].tagName == "DIV") {
+				advSkillsDiv.removeChild(advSkillsDiv.children[i]);
+				i -= 1;
+			}
+		}
+		for(var i=0; i<skills.advanced.length; i++) {
+			var newSkillDiv = document.createElement('div');
+			newSkillDiv.setAttribute('class', 'col s4 m3 l2');
+			var thumbnail = document.createElement('img');
+			thumbnail.setAttribute('src', skills.advanced[i].thumbnail);
+			thumbnail.setAttribute('class', 'responsive-img');
+			thumbnail.setAttribute('alt', 'skill thumbnail');
+			var title = document.createElement('h6');
+			title.setAttribute('class', 'center');
+			var link = document.createElement('a');
+			link.setAttribute('href', skills.advanced[i].link);
+			var titleText = document.createTextNode(skills.advanced[i].title);
+			link.appendChild(titleText);
+			title.appendChild(link);
+			newSkillDiv.appendChild(thumbnail);
+			newSkillDiv.appendChild(title);
+			advSkillsDiv.appendChild(newSkillDiv);
+		}
+		// fill in the strong skills
+		var strongSkillsDiv = document.getElementById('strong-skills');
+		for(var i=0; i<strongSkillsDiv.children.length; i++) {
+			if(strongSkillsDiv.children[i].tagName == "DIV") {
+				strongSkillsDiv.removeChild(strongSkillsDiv.children[i]);
+				i -= 1;
+			}
+		}
+		for(var i=0; i<skills.strong.length; i++) {
+			var newSkillDiv = document.createElement('div');
+			newSkillDiv.setAttribute('class', 'col s4 m3 l2');
+			var thumbnail = document.createElement('img');
+			thumbnail.setAttribute('src', skills.strong[i].thumbnail);
+			thumbnail.setAttribute('class', 'responsive-img');
+			thumbnail.setAttribute('alt', 'skill thumbnail');
+			var title = document.createElement('h6');
+			title.setAttribute('class', 'center');
+			var link = document.createElement('a');
+			link.setAttribute('href', skills.strong[i].link);
+			var titleText = document.createTextNode(skills.strong[i].title);
+			link.appendChild(titleText);
+			title.appendChild(link);
+			newSkillDiv.appendChild(thumbnail);
+			newSkillDiv.appendChild(title);
+			strongSkillsDiv.appendChild(newSkillDiv);
+		}
+		// fill in the experienced skills
+		var expSkillsDiv = document.getElementById('experienced-skills');
+		for(var i=0; i<expSkillsDiv.children.length; i++) {
+			if(expSkillsDiv.children[i].tagName == "DIV") {
+				expSkillsDiv.removeChild(expSkillsDiv.children[i]);
+				i -= 1;
+			}
+		}
+		for(var i=0; i<skills.experienced.length; i++) {
+			var newSkillDiv = document.createElement('div');
+			newSkillDiv.setAttribute('class', 'col s4 m3 l2');
+			var thumbnail = document.createElement('img');
+			thumbnail.setAttribute('src', skills.experienced[i].thumbnail);
+			thumbnail.setAttribute('class', 'responsive-img');
+			thumbnail.setAttribute('alt', 'skill thumbnail');
+			var title = document.createElement('h6');
+			title.setAttribute('class', 'center');
+			var link = document.createElement('a');
+			link.setAttribute('href', skills.experienced[i].link);
+			var titleText = document.createTextNode(skills.experienced[i].title);
+			link.appendChild(titleText);
+			title.appendChild(link);
+			newSkillDiv.appendChild(thumbnail);
+			newSkillDiv.appendChild(title);
+			expSkillsDiv.appendChild(newSkillDiv);
+		}
+	}
+	doAJAX("GET", window.location.origin + window.location.pathname + jsonLocation, "", onResponse);
 }
 
 var getContact = function() {
