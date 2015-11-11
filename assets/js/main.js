@@ -1,4 +1,27 @@
-
+var config = function() {
+	// after getting response
+	var onResponse = function(raw) {
+		var config = JSON.parse(raw);
+		/* deal with website title */
+		document.getElementsByTagName('title')[0].innerHTML = config.title;
+		/* deal with navigation bar */
+		// 1) navigaion title
+		document.getElementById('nav-title').innerHTML = config['nav-title'];
+		// 2) navigation links
+		var navNode = document.getElementById('nav-mobile');
+		while(navNode.children.length > 0) navNode.removeChild(navNode.children[0]);
+		for(var key in config.structure.pages) {
+			var newLi = document.createElement('li');
+			var newA = document.createElement('a');
+			var newText = document.createTextNode(key);
+			newA.setAttribute('onclick', 'navLink(\'' + config.structure.pages[key] + '\')');
+			newA.appendChild(newText);
+			newLi.appendChild(newA);
+			navNode.appendChild(newLi);
+		}
+	}
+	doAJAX('GET', window.location.href + 'config.json', '', onResponse)'
+}
 
 var doAJAX = function(method, url, data, funcOnSuc, asyncOrNot) {
 	// asyncOrNot is an optional parameter
@@ -34,3 +57,5 @@ var doAJAX = function(method, url, data, funcOnSuc, asyncOrNot) {
 		console.log("doAJAX(): ERROR!!");
 	}
 }
+
+config();
