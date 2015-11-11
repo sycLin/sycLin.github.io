@@ -20,7 +20,7 @@ var config = function() {
 			navNode.appendChild(newLi);
 		}
 	}
-	doAJAX('GET', window.location.href + 'config.json', '', onResponse)'
+	doAJAX('GET', window.location.href + 'config.json', '', onResponse);
 }
 
 var doAJAX = function(method, url, data, funcOnSuc, asyncOrNot) {
