@@ -7,6 +7,7 @@ var config = function() {
 		/* deal with navigation bar */
 		// 1) navigaion title
 		document.getElementById('nav-title').innerHTML = config['nav-title'];
+		document.getElementById('nav-title').setAttribute('href', window.location.origin + window.location.pathname);
 		// 2) navigation links
 		var navNode = document.getElementById('nav-mobile');
 		while(navNode.children.length > 0) navNode.removeChild(navNode.children[0]);
@@ -33,19 +34,44 @@ var navLink = function(navItem, jsonLocation) {
 	var target = navItem.innerHTML;
 	if(target == "about") {
 		console.log('displaying about section with json located at: ' + jsonLocation);
+		getAbout();
 	} else if(target == "publication") {
 		console.log('displaying publication section with json located at: ' + jsonLocation);
+		getPublication();
 	} else if(target == "projects") {
 		console.log('displaying projects section with json located at: ' + jsonLocation);
+		getProjects();
 	} else if(target == "skills") {
 		console.log('displaying skills section with json located at: ', jsonLocation);
+		getSkills();
 	} else if(target == "contact") {
 		console.log('displaying contact section with json located at: ' + jsonLocation);
+		getContact();
 	} else {
 		console.log('this sections: ' + target + ' is not implemented yet!');
 		return;
 	}
 	document.getElementById(target).style.display = "block";
+}
+
+var getAbout = function() {
+	console.log('under construction...');
+}
+
+var getPublication = function() {
+	console.log('under construction...');
+}
+
+var getProjects = function() {
+	console.log('under construction...');
+}
+
+var getSkills = function() {
+	console.log('under construction...');
+}
+
+var getContact = function() {
+	console.log('under construction...');
 }
 
 var doAJAX = function(method, url, data, funcOnSuc, asyncOrNot) {
