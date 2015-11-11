@@ -21,6 +21,20 @@ var config = function() {
 			newLi.appendChild(newA);
 			navNode.appendChild(newLi);
 		}
+		// 3) side navigation links
+		var sideNavNode = document.getElementById('mobile-demo');
+		while(sideNavNode.children.length > 0) sideNavNode.removeChild(sideNavNode.children[0]);
+		for(var key in config.structure.pages) {
+			var newLi = document.createElement('li');
+			var newA = document.createElement('a');
+			var newText = document.createTextNode(key);
+			newA.setAttribute('onclick', 'navLink(this, \'' + config.structure.pages[key] + '\')');
+			newA.setAttribute('href', '#');
+			newA.appendChild(newText);
+			newLi.appendChild(newA);
+			sideNavNode.appendChild(newLi);
+		}
+		$('.button-collapse').sideNav();
 	}
 	doAJAX('GET', window.location.href + 'config.json', '', onResponse);
 }
