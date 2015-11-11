@@ -24,6 +24,10 @@ var config = function() {
 	doAJAX('GET', window.location.href + 'config.json', '', onResponse);
 }
 
+var navLink = function(jsonLocation) {
+	;
+}
+
 var doAJAX = function(method, url, data, funcOnSuc, asyncOrNot) {
 	// asyncOrNot is an optional parameter
 	if(asyncOrNot == undefined)
