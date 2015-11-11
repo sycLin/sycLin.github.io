@@ -1,0 +1,12 @@
+{
+  "color": {},
+  "structure": {
+    "pages": {
+      "about": "about.json",
+      "publication": "publication.json",
+      "projects": "projects.json",
+      "skills": "skills.json",
+      "contact": "contact.json"
+    }
+  }
+}
