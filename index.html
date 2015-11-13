@@ -13,6 +13,9 @@
 	<link type="text/css" rel="stylesheet" href="assets/css/materialize.min.css" media="screen, projection" />
 	<!-- let browser know website is optimized for mobile -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style>
+	.tabs div.indicator {background-color: #009688;}
+	</style>
 </head>
 <body>
 	<!-- navigation bar -->
@@ -164,7 +167,40 @@
 		</div>
 	</div>
 	<div id="publication" class="container sections" style="display:none;">
-		<h3>nothing here...</h3>
+		<div class="row">
+			<div class="col s12">
+				<ul class="tabs card">
+					<li class="tab col s6"><a href="#conf-paper" class="active teal-text waves-effect waves-teal">Conference Paper</a></li>
+					<li class="tab col s6"><a href="#conf-poster" class="teal-text waves-effect waves-teal">Conference Poster</a></li>
+				</ul>
+			</div>
+			<div id="conf-paper" class="col s12">
+				<div class="card hoverable">
+					<div class="card-content">
+						<label>Conference goes here | time goes here.</label>
+						<h5>Paper Title</h5>
+						<h6>Author1, Author2, Author3, ...</h6>
+					</div>
+					<div class="card-action">
+						<a href="#">link1</a>
+						<a href="#">link2</a>
+					</div>
+				</div>
+			</div>
+			<div id="conf-poster" class="col s12">
+				<div class="card hoverable">
+					<div class="card-content">
+						<label>Conference goes here | time goes here.</label>
+						<h5>Poster Title</h5>
+						<h6>Author1, Author2, Author3, ...</h6>
+					</div>
+					<div class="card-action">
+						<a href="#">link1</a>
+						<a href="#">link2</a>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 	<div id="projects" class="container sections" style="display:none;">
 		<div class="row">
