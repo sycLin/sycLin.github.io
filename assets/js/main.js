@@ -79,6 +79,16 @@ var getPublication = function() {
 }
 
 var getProjects = function(jsonLocation) {
+	var createTechTag = function(tech, mainOrNot) {
+		var tag = document.createElement('div');
+		if(mainOrNot)
+			tag.setAttribute("class", "chip pink white-text");
+		else
+			tag.setAttribute("class", "chip");
+		var text = document.createTextNode(tech);
+		tag.appendChild(text);
+		return tag;
+	}
 	// get response from json file
 	var onResponse = function(raw) {
 		var projects = JSON.parse(raw);
@@ -118,6 +128,12 @@ var getProjects = function(jsonLocation) {
 				projectLinks.appendChild(newLink);
 			}
 			rightDiv.appendChild(projectTitle);
+			for(var j=0; j<projects.research[i]['related-tech']['main'].length; j++) {
+				rightDiv.appendChild(createTechTag(projects.research[i]['related-tech']['main'][j], true));
+			}
+			for(var j=0; j<projects.research[i]['related-tech']['other'].length; j++) {
+				rightDiv.appendChild(createTechTag(projects.research[i]['related-tech']['other'][j], false));
+			}
 			rightDiv.appendChild(projectDescription);
 			rightDiv.appendChild(projectLinks);
 			newPjDiv.appendChild(leftDiv);
@@ -160,6 +176,12 @@ var getProjects = function(jsonLocation) {
 				projectLinks.appendChild(newLink);
 			}
 			rightDiv.appendChild(projectTitle);
+			for(var j=0; j<projects.nonresearch[i]['related-tech']['main'].length; j++) {
+				rightDiv.appendChild(createTechTag(projects.nonresearch[i]['related-tech']['main'][j], true));
+			}
+			for(var j=0; j<projects.nonresearch[i]['related-tech']['other'].length; j++) {
+				rightDiv.appendChild(createTechTag(projects.nonresearch[i]['related-tech']['other'][j], false));
+			}
 			rightDiv.appendChild(projectDescription);
 			rightDiv.appendChild(projectLinks);
 			newPjDiv.appendChild(leftDiv);

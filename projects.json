@@ -17,7 +17,11 @@
           "linkTitle": "Training Data Set",
           "linkUrl": "http://tw.yahoo.com/"
         }
-      ]
+      ],
+      "related-tech": {
+        "main": ["JavaScript"],
+        "other": ["HTML", "CSS"]
+      }
     },
     {
       "title": "SampleProjectTitle",
@@ -36,7 +40,11 @@
           "linkTitle": "Training Data Set",
           "linkUrl": "http://tw.yahoo.com/"
         }
-      ]
+      ],
+      "related-tech": {
+        "main": ["JavaScript"],
+        "other": ["HTML", "CSS"]
+      }
     }
   ],
   "nonresearch": [
@@ -57,7 +65,11 @@
           "linkTitle": "Training Data Set",
           "linkUrl": "http://tw.yahoo.com/"
         }
-      ]
+      ],
+      "related-tech": {
+        "main": ["JavaScript"],
+        "other": ["HTML", "CSS"]
+      }
     },
     {
       "title": "SampleProjectTitle",
@@ -76,7 +88,11 @@
           "linkTitle": "Training Data Set",
           "linkUrl": "http://tw.yahoo.com/"
         }
-      ]
+      ],
+      "related-tech": {
+        "main": ["JavaScript"],
+        "other": ["HTML", "CSS"]
+      }
     }
   ]
 }
