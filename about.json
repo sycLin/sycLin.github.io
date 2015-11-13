@@ -1,0 +1,81 @@
+{
+  "basic": {
+    "title": "Heeello",
+    "shortbio": "<p>please put your ABOUT here...</p><p>This is the second paragraph... And it's just deeeeeemmmo for you to understand what would happen if you put your about information herrrrrrrree :) Haha!</p>",
+    "profilePic": "assets/img/profile.jpg"
+  },
+  "experience": [
+    {
+      "organization": "Mediatek",
+      "duration": "July 2015 - March 2016",
+      "position": "Janitor",
+      "thumbnail": "assets/img/mediatek.png"
+    },
+    {
+      "duration": "June 2015 - July 2015",
+      "organization": "Yahoo!",
+      "position": "Cleaner",
+      "thumbnail": "assets/img/yahoo.png"
+    },
+    {
+      "duration": "Feb 2015 - July 2015",
+      "organization": "NTU CSIE Data Structure and Algorithm Course",
+      "position": "Teaching Assistant",
+      "thumbnail": "assets/img/ntucsie.jpg"
+    }
+  ],
+  "education": [
+    {
+      "school": "National Taiwan University",
+      "degree": "Bachelor's Degree",
+      "major": "Computer Science",
+      "duration": "2012 - 2016",
+      "status": "Attending",
+      "thumbnail": "assets/img/ntu.jpg"
+    },
+    {
+      "school": "National Taichung First Senior High",
+      "degree": "High School",
+      "major": "General Class",
+      "duration": "2009 - 2012",
+      "status": "Graduated",
+      "thumbnail": "assets/img/tcfsh.jpg"
+    }
+  ],
+  "honors": [
+    {
+      "issuer": "issuer",
+      "awardTitle": "Award Title",
+      "timeOfAccepting": "time of accepting",
+      "description": "A little description about the award HERE!!!",
+      "links": [
+        {
+          "linkTitle": "link1",
+          "linkUrl": "http://www.google.com.tw/"
+        },
+        {
+          "linkTitle": "link2",
+          "linkUrl": "http://www.facebook.com/"
+        }
+      ],
+      "thumbnail": "assets/honorX.jpg"
+    },
+    {
+      "issuer": "issuer",
+      "awardTitle": "Award Title",
+      "timeOfAccepting": "time of accepting",
+      "description": "A little description about the award HERE!!!",
+      "links": [
+        {
+          "linkTitle": "link1",
+          "linkUrl": "http://www.google.com.tw/"
+        },
+        {
+          "linkTitle": "link2",
+          "linkUrl": "http://www.facebook.com/"
+        }
+      ],
+      "thumbnail": "assets/honorX.jpg"
+    }
+  ]
+}
