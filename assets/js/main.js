@@ -40,6 +40,8 @@ var config = function() {
 }
 
 var navLink = function(navItem, jsonLocation) {
+	// hide sideNav, necessary when on medium or small screen
+	$('.button-collapse').sideNav('hide');
 	// hide all other sections
 	var sections = document.getElementsByClassName('sections');
 	for(var i=0; i<sections.length; i++)
