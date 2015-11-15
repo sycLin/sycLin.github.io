@@ -1,5 +1,5 @@
 {
-  "name": "John Snow",
+  "name": "Jon Snow",
   "mobile": "+886-912-345-678",
   "fax": "+886-913-579-246",
   "email": "Snow.Bastard@gmail.com",
@@ -8,6 +8,6 @@
     "line2": ""
   },
   "city": "Casterly Rock",
-  "state": "Riverrun",
-  "country": "Seven Kindoms"
+  "state": "Winterfell",
+  "country": "Seven Kingdoms"
 }
