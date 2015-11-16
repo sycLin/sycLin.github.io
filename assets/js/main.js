@@ -196,6 +196,11 @@ var getSkills = function(jsonLocation) {
 	// get response from json file
 	var onResponse = function(raw) {
 		var skills = JSON.parse(raw);
+/*
+		for (key in skills) {
+			console.log(skills[key]);
+		}
+*/
 		// fill in the advanced skills
 		var advSkillsDiv = document.getElementById('advanced-skills');
 		for(var i=0; i<advSkillsDiv.children.length; i++) {
@@ -279,12 +284,44 @@ var getSkills = function(jsonLocation) {
 }
 
 var getContact = function(jsonLocation) {
+	console.log(jsonLocation);
 	var onResponse = function(raw) {
-		var information = JSON.parse(raw);
+		var info = JSON.parse(raw);
 
+
+		var contactDiv = document.getElementById('contact').children[0];
+		// For i = 0 being the Connection picture on top
+		// Remove original data on index.html
+		var tmpLength = contactDiv.children.length;
+		for (var i = 1; i < tmpLength; i ++) {
+			contactDiv.removeChild(contactDiv.children[1]);
+		}
+
+		
+		
+		for (key in info) {
+			if (info[key].showOrNot == false) {
+				continue;
+			}
+			var newH5 = document.createElement('h5');
+			newH5.setAttribute('class', 'left-align');
+			var newIconTag = document.createElement('i');
+			newIconTag.setAttribute('class', info[key].icon.color + " small material-icons left");
+			var newIconText = document.createTextNode(info[key].icon.value);
+			var newKeyInfo = document.createTextNode(info[key].value);
+			newIconTag.appendChild(newIconText);
+			newH5.appendChild(newIconTag);
+			newH5.appendChild(newKeyInfo);
+			contactDiv.appendChild(newH5);
+		}
+/*
 		var extracted_information = [];
 		extracted_information.push(information.name);
+		console.log(information.name);
+
 		extracted_information.push(information.email);
+		console.log(information.email);
+
 		extracted_information.push(information.mobile);
 		extracted_information.push(information.city + ", " + information.state + ", " + information.country);
 
@@ -294,6 +331,7 @@ var getContact = function(jsonLocation) {
 			// child(0) is DIV
 			contactDiv.children[i + 1].childNodes[1].nodeValue = extracted_information[i];
 		}
+*/
 	}
 	doAJAX("GET", window.location.origin + window.location.pathname + jsonLocation, "", onResponse);
 }

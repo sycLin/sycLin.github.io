@@ -1,13 +1,66 @@
 {
-  "name": "Jon Snow",
-  "mobile": "+886-912-345-678",
-  "fax": "+886-913-579-246",
-  "email": "Snow.Bastard@gmail.com",
-  "address": {
-    "line1": "No. 8, Sec. 2, Nanjing E. Rd.",
-    "line2": ""
+  "name": {
+    "icon": {
+      "color": "teal-text",
+      "value": "account_circle"
+    },
+    "value": "Jon Snow",
+    "showOrNot": true
   },
-  "city": "Casterly Rock",
-  "state": "Winterfell",
-  "country": "Seven Kingdoms"
+  "mobile": {
+    "icon": {
+      "color": "",
+      "value": "phone"
+    },
+    "value": "+886-912-345-678",
+    "showOrNot": true
+  },
+  "fax": {
+    "icon": {
+      "color": "teal-text",
+      "value": "phone"
+    },
+    "value": "+886-913-579-246",
+    "showOrNot": false
+  },
+  "email": {
+    "icon": {
+      "color": "blue-text",
+      "value": "language"
+    },
+    "value": "Bastard@gmail.com",
+    "showOrNot": true
+  }, 
+  "address": {
+    "icon": {
+      "color": "red-text",
+      "value": "location_on"
+    },
+    "value": "Casterly Rock, Winterfell, Seven Kingdoms",
+    "showOrNot": true
+  },
+  "city": {
+    "icon": {
+      "color": "teal-text",
+      "value": "account_circle"
+    },
+    "value": "Casterly Rock",
+    "showOrNot": false
+  },
+  "state":{
+    "icon": {
+      "color": "teal-text",
+      "value": "account_circle"
+    },
+    "value": "Winterfell",
+    "showOrNot": false
+  },
+  "country": {
+    "icon": {
+      "color": "teal-text",
+      "value": "account_circle"
+    },
+    "value": "Seven Kingdoms",
+    "showOrNot": false
+  }
 }
